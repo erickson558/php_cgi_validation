@@ -23,12 +23,12 @@ Esta lista registra evidencia de ejecución; no debe confundir archivos preparad
 
 ## Publicación
 
-- [ ] Inicializar Git con `main` y crear el primer commit.
-- [ ] Crear o verificar `erickson558/php_cgi_validation` como repositorio público.
-- [ ] Configurar `origin` y subir `main`.
-- [ ] Comprobar ejecución satisfactoria del workflow.
-- [ ] Verificar tag de la versión y release con ejecutable y checksums.
-- [ ] Registrar URL del repositorio, URL del release y evidencia final de validación.
+- [x] Inicializar Git con `main` y crear el primer commit.
+- [x] Crear o verificar `erickson558/php_cgi_validation` como repositorio público.
+- [x] Configurar `origin` y subir `main`.
+- [x] Comprobar ejecución satisfactoria del workflow.
+- [x] Verificar tag de la versión y release con ejecutable y checksums.
+- [x] Registrar URL del repositorio, URL del release y evidencia final de validación.
 
 ## Mantenimiento
 
@@ -39,4 +39,10 @@ Esta lista registra evidencia de ejecución; no debe confundir archivos preparad
 
 ## Evidencia final de la preparación
 
-Preparación local verificada el 2026-10-24: 26 pruebas aprobadas, Ruff correcto, dependencias de compilación sin vulnerabilidades conocidas según pip-audit, cuatro skills validadas y ejecutable Windows con arranque, subsistema GUI, icono y versión comprobados. La instalación editable y el entry point también se verificaron. La publicación se registrará después de comprobar GitHub Actions.
+Preparación local verificada el 2026-10-24: 28 pruebas aprobadas, Ruff correcto, dependencias de compilación sin vulnerabilidades conocidas según pip-audit, cuatro skills validadas y ejecutable Windows con arranque, subsistema GUI, icono y versión comprobados. La instalación editable y el entry point también se verificaron.
+
+- [Repositorio público](https://github.com/erickson558/php_cgi_validation), rama `main`.
+- Primer commit: `4b711a41ba4e712532e760a73848d7db370dce2a`.
+- [Workflow inicial satisfactorio](https://github.com/erickson558/php_cgi_validation/actions/runs/40099362835): 28 pruebas en Windows 3.10/3.12 y Linux 3.12; lint PHP, auditoría, build y publicación correctos.
+- [Primer release V1.0.0](https://github.com/erickson558/php_cgi_validation/releases/tag/V1.0.0): ejecutable, `SHA256SUMS.txt`, licencia y avisos de terceros presentes, sin estado draft.
+- La corrección de mantenimiento V1.0.1 registra esta evidencia y actualiza Actions para retirar los avisos de Node 20. Su resultado vigente se consulta en [Actions](https://github.com/erickson558/php_cgi_validation/actions/workflows/release.yml) y [Releases](https://github.com/erickson558/php_cgi_validation/releases).

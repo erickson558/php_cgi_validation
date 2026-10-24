@@ -2,6 +2,12 @@
 
 Se utiliza versionado semántico. Las etiquetas públicas tienen prefijo `V`.
 
+## [V1.0.1] - 2026-10-24
+
+- Actualiza las acciones oficiales de checkout, Python y artefactos a versiones mantenidas con Node 24, fijadas por commit.
+- Registra evidencia del primer release automático, las 28 pruebas y la comprobación de sintaxis PHP en Linux.
+- Completa las instrucciones de verificación del ejecutable y la documentación de publicación.
+
 ## [V1.0.0] - 2026-10-24
 
 ### Añadido

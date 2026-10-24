@@ -72,6 +72,9 @@ python -m venv .venv
 # Validar que la versión y los archivos requeridos estén sincronizados.
 .\.venv\Scripts\python.exe scripts/bump_version.py --check
 .\.venv\Scripts\python.exe build.py --check
+.\.venv\Scripts\python.exe scripts/export_delivery.py --check
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m pip_audit -r requirements-build.txt --strict
 
 # Ejecutar la aplicación desde código.
 .\.venv\Scripts\python.exe php_audit_gui.py
@@ -182,6 +185,8 @@ git pull --ff-only
 .\.venv\Scripts\python.exe scripts/bump_version.py --check
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe build.py
+$version = .\.venv\Scripts\python.exe -c "from app_version import APP_VERSION; print(APP_VERSION)"
+& ".\php_cgi_validation-$version.exe" --smoke-test
 
 # Revisa el conjunto y publica un commit con una versión nueva.
 git add .
@@ -228,3 +233,12 @@ Get-FileHash -Algorithm SHA256 .\php_cgi_validation-V1.0.0.exe
 ```
 
 La compilación local es independiente del push: el workflow instala sus propias dependencias fijadas, compila en Windows y publica sus propios artefactos. No hagas commit del `.exe`, `.venv` ni carpetas de trabajo de PyInstaller. Conserva `app.ico`, los scripts y las dependencias en el repositorio.
+
+El nombre mostrado en los ejemplos corresponde al primer release. Obtén el nombre actual sin copiar una versión anterior:
+
+```powershell
+$version = .\.venv\Scripts\python.exe -c "from app_version import APP_VERSION; print(APP_VERSION)"
+& ".\php_cgi_validation-$version.exe" --smoke-test
+```
+
+Si editas los archivos incluidos en la entrega consolidada, ejecuta `python scripts/export_delivery.py` antes del commit. El incremento de versión también la regenera. Para instalar las cuatro skills en un entorno de mantenimiento diferente, copia las carpetas de `.agents/skills/` a la carpeta personal de skills sin sobrescribir versiones existentes; `AGENTS.md` documenta los roles y las rutas del proyecto.

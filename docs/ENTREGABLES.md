@@ -7,7 +7,7 @@ Documento generado con `python scripts/export_delivery.py`. Los archivos origina
 ~~~~text
 # php_cgi_validation
 
-**Versión: V1.0.0** · Python 3.10+ · Windows · Licencia Apache-2.0
+**Versión: V1.0.1** · Python 3.10+ · Windows · Licencia Apache-2.0
 
 Evaluación preliminar de exposición PHP desde una interfaz de escritorio en **español e inglés**. Compara las versiones anunciadas por URLs autorizadas con las correcciones de CVE-2026-109618 y CVE-2026-109619. Permite documentar indicios y preparar una revisión con el administrador del servidor.
 
@@ -103,11 +103,11 @@ python build.py --check
 python build.py
 ```
 
-El script usa el icono local `app.ico` y genera un ejecutable sin consola, en la misma carpeta que `php_audit_gui.py`: `php_cgi_validation-V1.0.0.exe`. La versión se obtiene de `app_version.py`. El entorno y las dependencias fijadas hacen repetible el procedimiento; no garantizan que dos compilaciones produzcan bytes idénticos. Los binarios no tienen firma de código salvo que se añada un certificado propio.
+El script usa el icono local `app.ico` y genera un ejecutable sin consola, en la misma carpeta que `php_audit_gui.py`: `php_cgi_validation-V1.0.1.exe`. La versión se obtiene de `app_version.py`. El entorno y las dependencias fijadas hacen repetible el procedimiento; no garantizan que dos compilaciones produzcan bytes idénticos. Los binarios no tienen firma de código salvo que se añada un certificado propio.
 
 ## Versionado y releases
 
-La fuente de versión es `app_version.py`: `VERSION` tiene formato `x.y.z`; la interfaz, tags, releases y binarios usan el prefijo `V`, actualmente `V1.0.0`.
+La fuente de versión es `app_version.py`: `VERSION` tiene formato `x.y.z`; la interfaz, tags, releases y binarios usan el prefijo `V`, actualmente `V1.0.1`.
 
 | Incremento | Cuándo | Ejemplo |
 | --- | --- | --- |
@@ -420,7 +420,7 @@ their applicable license notices are distributed with each release.
 """Fuente única de versión para la interfaz, el paquete y las publicaciones."""
 
 # SemVer usa dígitos en el paquete; el prefijo V identifica tags y releases.
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 APP_VERSION = f"V{VERSION}"
 ~~~~
 
@@ -476,7 +476,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Los jobs de validación no pueden escribir en el repositorio.
+# Los jobs de validaciÃ³n no pueden escribir en el repositorio.
 permissions:
   contents: read
 
@@ -498,11 +498,11 @@ jobs:
             python: '3.12'
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python }}
           cache: pip
@@ -528,10 +528,10 @@ jobs:
     needs: validate
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
           cache: pip
@@ -545,10 +545,10 @@ jobs:
           $process = Start-Process -FilePath $binary -ArgumentList '--smoke-test' -PassThru -WindowStyle Hidden
           if (-not $process.WaitForExit(60000)) {
             Stop-Process -Id $process.Id -Force
-            throw 'El ejecutable no terminó la prueba de arranque.'
+            throw 'El ejecutable no terminÃ³ la prueba de arranque.'
           }
           if ($process.ExitCode -ne 0) { throw "Fallo de arranque: $($process.ExitCode)" }
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: windows-release
           if-no-files-found: error
@@ -564,13 +564,13 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.12'
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: windows-release
       - name: Publish immutable version

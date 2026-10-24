@@ -1,6 +1,6 @@
 # Especificación del producto
 
-Estado: base funcional de V1.0.0. Fecha de reglas PHP: 2026-10-24.
+Estado: base funcional distribuible; la versión vigente se consulta en `app_version.py`. Fecha de reglas PHP: 2026-10-24.
 
 ## Problema y alcance
 

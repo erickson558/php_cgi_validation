@@ -1,6 +1,6 @@
 # php_cgi_validation
 
-**Versión: V1.0.0** · Python 3.10+ · Windows · Licencia Apache-2.0
+**Versión: V1.0.1** · Python 3.10+ · Windows · Licencia Apache-2.0
 
 Evaluación preliminar de exposición PHP desde una interfaz de escritorio en **español e inglés**. Compara las versiones anunciadas por URLs autorizadas con las correcciones de CVE-2026-109618 y CVE-2026-109619. Permite documentar indicios y preparar una revisión con el administrador del servidor.
 
@@ -96,11 +96,11 @@ python build.py --check
 python build.py
 ```
 
-El script usa el icono local `app.ico` y genera un ejecutable sin consola, en la misma carpeta que `php_audit_gui.py`: `php_cgi_validation-V1.0.0.exe`. La versión se obtiene de `app_version.py`. El entorno y las dependencias fijadas hacen repetible el procedimiento; no garantizan que dos compilaciones produzcan bytes idénticos. Los binarios no tienen firma de código salvo que se añada un certificado propio.
+El script usa el icono local `app.ico` y genera un ejecutable sin consola, en la misma carpeta que `php_audit_gui.py`: `php_cgi_validation-V1.0.1.exe`. La versión se obtiene de `app_version.py`. El entorno y las dependencias fijadas hacen repetible el procedimiento; no garantizan que dos compilaciones produzcan bytes idénticos. Los binarios no tienen firma de código salvo que se añada un certificado propio.
 
 ## Versionado y releases
 
-La fuente de versión es `app_version.py`: `VERSION` tiene formato `x.y.z`; la interfaz, tags, releases y binarios usan el prefijo `V`, actualmente `V1.0.0`.
+La fuente de versión es `app_version.py`: `VERSION` tiene formato `x.y.z`; la interfaz, tags, releases y binarios usan el prefijo `V`, actualmente `V1.0.1`.
 
 | Incremento | Cuándo | Ejemplo |
 | --- | --- | --- |

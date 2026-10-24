@@ -29,7 +29,7 @@ Asigna archivos distintos y coordina cualquier cambio de API antes de integrarlo
   Las cadenas de interfaz deben existir en español e inglés.
 - No registrar credenciales, informes reales de clientes ni secretos. Conservar
   los informes locales en `reports/`, excluido de Git.
-- No añadir atribuciones de asistencia automatizada ni trailers de coautoría.
+- Mantener autoría de la cuenta del proyecto y mensajes de commit sin trailers de coautoría.
 - Publicar en `erickson558/php_cgi_validation` solo cuando la petición lo autorice.
   No guardar tokens en código, skills, logs ni documentación.
 

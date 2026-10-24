@@ -28,7 +28,7 @@ Impacto: al copiarlo a un servidor accesible desde Internet, podía revelar la v
 
 Corrección: [diagnostic.php](../diagnostic.php#L4) exige que la conexión directa proceda de `127.0.0.1` o `::1`, devuelve 403 en otro caso y envía `Cache-Control: no-store`. No confía en `X-Forwarded-For`. Debe retirarse al terminar incluso con esta protección: un proxy local puede hacer que peticiones externas aparezcan como locales.
 
-Validación pendiente: PHP CLI no estaba disponible en el entorno local de esta revisión. Se revisó el código y la sintaxis manualmente, pero no se ejecutó este archivo con un intérprete PHP ni se verificó su despliegue real.
+Validación: PHP CLI no estaba disponible localmente. La integración del primer release ejecutó `php -l diagnostic.php` correctamente en Linux. Sigue pendiente una prueba de despliegue real del diagnóstico; el lint no comprueba su configuración de red ni el comportamiento de un proxy.
 
 ### SEC-003 · Versiones remotas podían interrumpir el lote
 
@@ -85,6 +85,6 @@ el intérprete completo ni todas sus bibliotecas nativas: deben mantenerse actua
 
 ## Evidencia de pruebas y fuentes
 
-Comando del motor: `python -m unittest discover -s tests -p test_audit.py -v`. Resultado al cerrar esta revisión: 19 pruebas correctas, usando únicamente loopback y archivos temporales. La prueba del control local PHP queda pendiente por ausencia del intérprete indicado arriba.
+Comando del motor: `python -m unittest discover -s tests -p test_audit.py -v`. Resultado: 19 pruebas correctas usando únicamente loopback y archivos temporales. La suite integrada incluye 28 pruebas, superadas localmente y en la matriz Windows/Python 3.10, Windows/Python 3.12 y Linux/Python 3.12 del [primer workflow completo](https://github.com/erickson558/php_cgi_validation/actions/runs/40099362835). PHP pasó lint en Linux; la prueba de su despliegue real permanece fuera de esa comprobación.
 
 Referencias de comportamiento: [urllib.request y sus timeouts/proxies](https://docs.python.org/3/library/urllib.request.html), [http.client](https://docs.python.org/3/library/http.client.html), [os.replace](https://docs.python.org/3/library/os.html#os.replace) y [avisos de PHP de octubre de 2026](https://www.php.net/archive/2026.php).

@@ -26,6 +26,10 @@ Usa mensajes como `feat: add compatible functionality`, `fix: handle malformed r
 
 Cada commit nuevo de `main` necesita una versión sin publicar. Si se combinan cambios de varias ramas, prepara una versión coherente para el commit final que publique el mantenedor. El [manual](docs/MANUAL.md) describe el incremento, build y release.
 
+Las propuestas automáticas de Dependabot también necesitan incremento de versión,
+changelog y regeneración de `docs/ENTREGABLES.md` antes de integrarse. Un fallo de
+esas comprobaciones en una propuesta todavía no preparada no autoriza saltarlas.
+
 ## Revisión
 
 Incluye en la propuesta el problema concreto, el nuevo comportamiento, la validación realizada y los límites pendientes. Para cambios de reglas PHP, aporta la fuente oficial, fecha y casos de prueba de sus fronteras; no afirmes vulnerabilidad confirmada basándote solo en cabeceras.
