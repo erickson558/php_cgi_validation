@@ -1,0 +1,23 @@
+name: Proponer una mejora
+description: Explica el problema y el resultado esperado para revisar la especificación.
+title: "[Mejora]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema que necesitas resolver
+      description: Describe una situación concreta y su impacto.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Resultado esperado
+      description: Indica cómo se comprobaría que la mejora resuelve el problema.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Alcance y alternativas
+      description: Explica si afecta a la interfaz, informes, reglas PHP o distribución. No incluyas datos de terceros.

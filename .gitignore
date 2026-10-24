@@ -1,0 +1,33 @@
+# Entornos, cachés y resultados locales.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+*.spec
+*.exe
+SHA256SUMS.txt
+THIRD_PARTY_NOTICES.txt
+.coverage
+htmlcov/
+
+# Informes de clientes y credenciales nunca se versionan.
+reports/
+release-download/
+evaluacion_php*.json
+evaluacion_php*.csv
+php_audit_*.json
+php_audit_*.csv
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+.DS_Store
+Thumbs.db

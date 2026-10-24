@@ -1,0 +1,34 @@
+name: Informar un error
+description: Describe un fallo reproducible usando únicamente datos sintéticos.
+title: "[Error]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Para vulnerabilidades del propio programa consulta SECURITY.md y utiliza el canal privado cuando esté disponible. No publiques tokens, informes de clientes ni URLs privadas.
+  - type: input
+    id: version
+    attributes:
+      label: Versión de la aplicación
+      placeholder: V1.0.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Entorno
+      description: Sistema operativo y, si ejecutas el código, versión de Python.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos para reproducir
+      description: Usa un laboratorio local y datos sintéticos. Incluye el comportamiento esperado y el observado.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia sin datos sensibles
+      description: Mensaje de error y resultado relevante, sin secretos ni identificadores de clientes.

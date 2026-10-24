@@ -1,0 +1,2 @@
+# Ejecución: únicamente biblioteca estándar de Python 3.10+ y Tkinter.
+# Tkinter se instala con Python o con el gestor del sistema, nunca mediante pip.
