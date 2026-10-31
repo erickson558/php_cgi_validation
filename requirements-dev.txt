@@ -1,4 +1,4 @@
 -r requirements-build.txt
 pip-audit==2.10.1
-ruff==0.17.2
+ruff==0.17.3
 PyYAML==6.0.3
